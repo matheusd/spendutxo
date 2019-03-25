@@ -16,8 +16,13 @@ Use go 1.12, with `GO111MODULES=on` or outside your `$GOPATH`. Just `go {run,bui
 # Help!
 $ spendutxo -h
 
-# Generate the spend tx
-$ spendutxo -w localhost:19121 -c ~/.dcrwallet/rpc.cert --dest TsfDLrRkk9ciUuwfp2b8PawwnukYD7yAjGd --amt 1.32 -u 43b9e0cc1bfb1ca220e3a9d2be8c637aa4b9581eb0eab379dab7a674ce187cb3:1  --changeaccount 3 
+# Generate the spend tx. You can specify multiple (--dest,--amt) pairs and
+# also multiple -u input utxos.
+$ spendutxo \
+  -w localhost:19121 -c ~/.dcrwallet/rpc.cert \
+  --dest TsfDLrRkk9ciUuwfp2b8PawwnukYD7yAjGd --amt 1.32 \
+  -u 43b9e0cc1bfb1ca220e3a9d2be8c637aa4b9581eb0eab379dab7a674ce187cb3:1 \
+  --changeaccount 3 
 
 # Generate, Sign & Publish ([...] is the rest of the arguments)
 $ spendutxo [...] --sign --publish
